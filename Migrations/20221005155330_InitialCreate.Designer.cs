@@ -11,7 +11,7 @@ using la_mia_pizzeria;
 namespace la_mia_pizzeria_static.Migrations
 {
     [DbContext(typeof(PizzeriaContext))]
-    [Migration("20221005132550_InitialCreate")]
+    [Migration("20221005155330_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
