@@ -3,10 +3,17 @@
     //CLASSE PIZZA
     public class Pizza
     {
+        public int id { get; set; }
         public string Nome { get; set; }
         public string Description { get; set; }
         public string Pic { get; set; }
         public float Price { get; set; }
+
+        //COSTRUTTORE VUOTO
+        public Pizza()
+        {
+
+        }
 
         //COSTRUTTORE
         public Pizza(string nome, string description, string pic, float price)

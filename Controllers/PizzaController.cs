@@ -1,6 +1,7 @@
 ﻿using la_mia_pizzeria.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace la_mia_pizzeria.Controllers
 {
@@ -29,7 +30,6 @@ namespace la_mia_pizzeria.Controllers
 
             return View(mp);
           
-
         }
 
 		// GET: PizzaController/Details/5
@@ -57,17 +57,15 @@ namespace la_mia_pizzeria.Controllers
 		// POST: PizzaController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(IFormCollection collection)
+		public ActionResult Create(Pizza formData)
 		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+            if (!ModelState.IsValid)
+            {
+                return View("Create", formData);
+            }
+            Utility.Aggiungi(new Pizza(formData.Nome, formData.Description, formData.Pic, formData.Price));
+            return RedirectToAction("Index");
+        }
 
 		// GET: PizzaController/Edit/5
 		public ActionResult Edit(int id)

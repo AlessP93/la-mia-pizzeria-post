@@ -1,0 +1,52 @@
+﻿<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @*HEADER*@
+    <header class="container-fluid d-flex justify-content-between">
+        <header class="container-fluid d-flex justify-content-between">
+            <img src="../Views/Pizza/img/pizza.png.png" alt="Immagine Pizza">
+            <span> <a>Utente</a> </span>
+        </header>
+    </header>
+    @*MAIN*@
+    <main class="container">
+        <div class="row text-center">
+            <h1>Crea una nuova pizza</h1>
+            <div class="col-4">
+            <form asp-controller="Pizza" asp-action="Create" method="post">
+                @Html.AntiforgeryToken()
+                <div>
+                    <h4>Titolo</h4>
+                    <input asp-for="Nome" class="d-blocalert-dark w-100" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div>
+                    <h4>Descrizione</h4>
+                      <textarea asp-for="Description" class="d-blocalert-dark w-100"></textarea>
+                      <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div>
+                    <h4>Immagine</h4>
+                      <input asp-for="Pic" class="d-blocalert-dark w-100" />
+                      <span asp-validation-for="Pic" class="text-danger"></span>
+                </div>
+                   <div>
+                    <h4>Prezzo</h4>
+                      <input asp-for="Price" class="d-blocalert-dark w-100"
+                      <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-small btn-success" value="Salva"/>
+                </div>
+            </form>
+            </div>
+        </div>
+    </main>
+    @*FOOTER*@
+    <footer class="container-fluid text-center">
+        <h5>Sponsored by Pizza Foods</h5>
+    </footer>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>

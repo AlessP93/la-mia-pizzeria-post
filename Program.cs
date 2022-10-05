@@ -1,3 +1,5 @@
+using la_mia_pizzeria.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,3 +27,4 @@ app.MapControllerRoute(
     pattern: "{controller=Pizza}/{action=Index}/{id?}");
 
 app.Run();
+
