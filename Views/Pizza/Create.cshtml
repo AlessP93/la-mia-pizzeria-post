@@ -1,26 +1,28 @@
-﻿<head>
+﻿@model Pizza
+<head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     @*HEADER*@
-    <header class="container-fluid d-flex justify-content-between">
+@*    <header class="container-fluid d-flex justify-content-between">
         <header class="container-fluid d-flex justify-content-between">
             <img src="../Views/Pizza/img/pizza.png.png" alt="Immagine Pizza">
             <span> <a>Utente</a> </span>
         </header>
-    </header>
+    </header>*@
     @*MAIN*@
     <main class="container">
         <div class="row text-center">
             <h1>Crea una nuova pizza</h1>
             <div class="col-4">
+
             <form asp-controller="Pizza" asp-action="Create" method="post">
-                @Html.AntiforgeryToken()
+                @Html.AntiForgeryToken()
                 <div>
                     <h4>Titolo</h4>
-                    <input asp-for="Nome" class="d-blocalert-dark w-100" />
-                    <span asp-validation-for="Nome" class="text-danger"></span>
+                       <input asp-for="Nome" class="d-block w-100" />
+                   <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
                 <div>
                     <h4>Descrizione</h4>
@@ -30,23 +32,24 @@
                 <div>
                     <h4>Immagine</h4>
                       <input asp-for="Pic" class="d-blocalert-dark w-100" />
-                      <span asp-validation-for="Pic" class="text-danger"></span>
+                     <span asp-validation-for="Pic" class="text-danger"></span>
                 </div>
                    <div>
                     <h4>Prezzo</h4>
-                      <input asp-for="Price" class="d-blocalert-dark w-100"
-                      <span asp-validation-for="Price" class="text-danger"></span>
+                      <input asp-for="Price" class="d-blocalert-dark w-100" />
+                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
                 <div>
                     <input type="submit" class="btn btn-small btn-success" value="Salva"/>
                 </div>
             </form>
+
             </div>
         </div>
     </main>
     @*FOOTER*@
-    <footer class="container-fluid text-center">
+@*    <footer class="container-fluid text-center">
         <h5>Sponsored by Pizza Foods</h5>
-    </footer>
+    </footer>*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

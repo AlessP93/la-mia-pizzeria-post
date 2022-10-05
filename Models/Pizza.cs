@@ -1,9 +1,13 @@
-﻿namespace la_mia_pizzeria.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace la_mia_pizzeria.Models
 {
     //CLASSE PIZZA
     public class Pizza
     {
         public int id { get; set; }
+
+        //[Required(ErrorM)]
         public string Nome { get; set; }
         public string Description { get; set; }
         public string Pic { get; set; }

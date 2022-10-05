@@ -59,11 +59,16 @@ namespace la_mia_pizzeria.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult Create(Pizza formData)
 		{
+			
             if (!ModelState.IsValid)
             {
                 return View("Create", formData);
             }
-            Utility.Aggiungi(new Pizza(formData.Nome, formData.Description, formData.Pic, formData.Price));
+
+			PizzeriaContext db = new PizzeriaContext();
+			db.Pizza.Add(formData);
+			db.SaveChanges();
+           
             return RedirectToAction("Index");
         }
 
